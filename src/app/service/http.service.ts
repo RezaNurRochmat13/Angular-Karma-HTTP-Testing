@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class HttpService {
-
+    private BASE_COMMENTS_API = 'https://my-json-server.typicode.com/typicode/demo/comments';
+    private BASE_POSTS_API = 'https://my-json-server.typicode.com/typicode/demo/posts';
 constructor(
     private http: HttpClient
 ) { }
@@ -17,7 +18,11 @@ constructor(
  * @memberof HttpService
  */
 public getData() {
-    return this.http.get('https://my-json-server.typicode.com/typicode/demo/posts');
+    return this.http.get(this.BASE_POSTS_API);
+ }
+
+ public getComments() {
+     return this.http.get(this.BASE_COMMENTS_API);
  }
 
  public sendData(body: any) {

@@ -29,6 +29,18 @@ describe('ExampleComponent', () => {
   }));
 
   it('should test method in component', async(() => {
-    examplecomponent.getAll();
+  expect(examplecomponent.addNumber()).toEqual(6);
   }));
+
+  it('should test has returned double value', () => {
+    expect(examplecomponent.divideNumber()).toEqual(0.5);
+  });
+
+  it('should test retuned response body', () => {
+    expect(examplecomponent.checkResponseBody()).toEqual(
+      [
+        {id: 1, name_users: 'Peter', address: 'California'}
+      ]
+    );
+  });
 });

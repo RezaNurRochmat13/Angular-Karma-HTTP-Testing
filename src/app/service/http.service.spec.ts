@@ -7,11 +7,10 @@ import { HttpService } from './http.service';
 
 describe('Service: HTTP service', () => {
   let service;
-  let httpMock: HttpTestingController;
 
   beforeEach(() => TestBed.configureTestingModule({
     imports: [ HttpClientTestingModule, HttpClientModule ],
-    providers: [ HttpService, HttpTestingController ]
+    providers: [ HttpService ]
   }));
 
  beforeEach(inject([HttpService], layanan => {
@@ -27,7 +26,7 @@ describe('Service: HTTP service', () => {
     const body = [
       { id: 1, title: 'Post 1' },
       { id: 2, title: 'Post 2' },
-      { id: 3, title: 'Post 3' }
+      { id: 3, title: 'Post 4' }
     ];
     service.getData().subscribe(res => {
       expect(res).toContain({
@@ -40,23 +39,17 @@ describe('Service: HTTP service', () => {
       });
       expect(res).toContain({
         id: 3,
-        title: 'Post 3'
+        title: 'Post 4'
        });
        expect(res).toEqual(body);
     });
   }));
 
-  it('should to test POST Data to API', () => {
-    const body = [
-      { id: 4, title: 'Post 4' }
-    ];
-    service.sendData(body).subscribe(response => {
-      expect(response).toBe(body);
+  it('should return response body', () => {
+    const bodyFake = ['Hahai'];
+    service.getComments().subscribe(response => {
+      expect(response).toContain({id: 1, body: 'some comment'});
+      expect(response).toBe(bodyFake);
     });
-    const req = httpMock
-    .expectOne(req => req.method === 'POST' && req.url === 'https://my-json-server.typicode.com/typicode/demo/posts');
-
-    req.flush(body);
-    httpMock.verify();
   });
 });

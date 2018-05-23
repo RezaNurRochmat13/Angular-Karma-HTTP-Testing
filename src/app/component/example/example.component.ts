@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExampleComponent implements OnInit {
   public post: any;
+  public angka1 = 2;
+  public angka2 = 4;
+  public hasil;
 
   constructor(
     private httpSvc: HttpService
@@ -22,6 +25,25 @@ export class ExampleComponent implements OnInit {
     }));
   }
 
+  private addNumber() {
+    this.hasil = this.angka1 + this.angka2;
+    return this.hasil;
+  }
 
+  private divideNumber() {
+    this.hasil = this.angka1 / this.angka2;
+    return this.hasil;
+  }
 
+  private checkResponseBody() {
+    const body = [
+      {id: 1, name_users: 'Peter', address: 'California'},
+      {id: 2, name_users: 'John', address: 'NYC'},
+      {id: 3, name_users: 'Sam', address: 'Canada'},
+      {id: 4, name_users: 'Adrian', address: 'Pittsburgh'},
+      {id: 5, name_users: 'James', address: 'Sillicon Valley'},
+    ];
+
+    return body;
+  }
 }

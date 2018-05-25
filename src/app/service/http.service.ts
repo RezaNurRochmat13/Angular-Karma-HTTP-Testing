@@ -26,7 +26,7 @@ public getData() {
  }
 
  public sendData(body: any) {
-     return this.http.post('https://my-json-server.typicode.com/typicode/demo/posts', body);
+     return this.http.post(this.BASE_COMMENTS_API, body);
  }
 
 }

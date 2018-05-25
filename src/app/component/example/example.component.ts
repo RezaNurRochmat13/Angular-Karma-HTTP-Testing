@@ -38,10 +38,10 @@ export class ExampleComponent implements OnInit {
   private checkResponseBody() {
     const body = [
       {id: 1, name_users: 'Peter', address: 'California'},
-      {id: 2, name_users: 'John', address: 'NYC'},
-      {id: 3, name_users: 'Sam', address: 'Canada'},
-      {id: 4, name_users: 'Adrian', address: 'Pittsburgh'},
-      {id: 5, name_users: 'James', address: 'Sillicon Valley'},
+      // {id: 2, name_users: 'John', address: 'NYC'},
+      // {id: 3, name_users: 'Sam', address: 'Canada'},
+      // {id: 4, name_users: 'Adrian', address: 'Pittsburgh'},
+      // {id: 5, name_users: 'James', address: 'Sillicon Valley'},
     ];
 
     return body;
